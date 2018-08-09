@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
+import com.jet.flowtaglayout.FlowTagLayout;
+
 import java.util.ArrayList;
 import java.util.List;
 

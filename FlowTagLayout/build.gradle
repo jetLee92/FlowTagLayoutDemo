@@ -1,9 +1,18 @@
 apply plugin: 'com.android.library'
 
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
+
+def siteUrl = 'https://github.com/jetLee92/FlowTagLayoutDemo'   // 项目的主页
+def gitUrl = 'git@github.com:jetLee92/FlowTagLayoutDemo.git'   // Git仓库的url
+
+version = "1.0"
+group = "com.jetlee"
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
 android {
     compileSdkVersion 27
-
-
 
     defaultConfig {
         minSdkVersion 15
@@ -31,4 +40,80 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
+
+
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+    pkg {
+        repo = 'FlowTagLayout'//自己bintray创建仓库名字
+        name = 'FlowTagLayout'//Library的名字
+        websiteUrl = siteUrl
+        vcsUrl = gitUrl
+        licenses = ['MIT']//不能随便写，只能是仓库创建时选择的license type
+        userOrg = 'jetlee' //自己bintray创建的organization名称
+        publish = true // 是否是公开项目。
+
+        version {
+            name = '1.0'
+            desc = 'High integrated development framework for Android applications.'
+            released  = new Date()
+            vcsTag = 'v1.0'
+            attributes = ['gradle-plugin': 'com.use.less:com.use.less.gradle:gradle-useless-plugin']
+        }
+    }
+    configurations = ['archives']
+}
+
+install {
+    repositories.mavenInstaller {
+        // This generates POM.xml with proper parameters
+        pom {
+            project {
+                packaging 'aar'
+                // Add your description here
+                name 'FlowTagLayout Android'
+                description 'High integrated development framework for Android applications.'
+                url siteUrl
+                // Set your license
+                licenses {
+                    license {
+                        name 'MIT'
+                        url 'https://github.com/jetLee92/FlowTagLayoutDemo/blob/master/LICENSE'
+                    }
+                }
+                developers {
+                    developer {
+                        id 'jetLee92'        //填写bintray或者github的用户名
+                        name 'Jet啟思'         //姓名，可以是中文
+                        email 'liqisi92@gmail.com'
+                    }
+                }
+                scm {
+                    connection gitUrl
+                    developerConnection gitUrl
+                    url siteUrl
+                }
+            }
+        }
+    }
+}
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+task javadoc(type: Javadoc) {
+    failOnError false //必须添加以免出错
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+artifacts {
+    archives javadocJar
+    archives sourcesJar
 }

@@ -1,4 +1,4 @@
-package com.jet.flowtaglayoutdemo;
+package com.jet.flowtaglayout;
 
 import android.content.res.Resources;
 import android.util.TypedValue;

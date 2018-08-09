@@ -1,4 +1,4 @@
-package com.jet.flowtaglayoutdemo;
+package com.jet.flowtaglayout;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -335,7 +335,7 @@ public class FlowTagLayout extends ViewGroup {
         this.onTagClickListener = onTagClickListener;
     }
 
-    interface OnTagClickListener {
+    public interface OnTagClickListener {
         void tagClick(int position);
     }
 
