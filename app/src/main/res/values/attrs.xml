@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="FlowTagLayout">
+        <attr name="item_leftMargin" format="dimension" />
+        <attr name="item_rightMargin" format="dimension" />
+        <attr name="item_topMargin" format="dimension" />
+        <attr name="item_bottomMargin" format="dimension" />
+        <attr name="item_leftPadding" format="dimension" />
+        <attr name="item_rightPadding" format="dimension" />
+        <attr name="item_topPadding" format="dimension" />
+        <attr name="item_bottomPadding" format="dimension" />
+        <attr name="item_background" format="reference" />
+        <attr name="item_textSize" format="dimension" />
+        <attr name="item_textColor" format="color" />
+    </declare-styleable>
+
+</resources>
