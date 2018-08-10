@@ -6,7 +6,7 @@ apply plugin: 'com.github.dcendents.android-maven'
 def siteUrl = 'https://github.com/jetLee92/FlowTagLayoutDemo'   // 项目的主页
 def gitUrl = 'git@github.com:jetLee92/FlowTagLayoutDemo.git'   // Git仓库的url
 
-version = "1.0"
+version = "1.0.1"
 group = "com.jetlee"
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
@@ -56,10 +56,10 @@ bintray {
         publish = true // 是否是公开项目。
 
         version {
-            name = '1.0'
+            name = '1.0.1'
             desc = 'High integrated development framework for Android applications.'
             released  = new Date()
-            vcsTag = 'v1.0'
+            vcsTag = 'v1.0.1'
             attributes = ['gradle-plugin': 'com.use.less:com.use.less.gradle:gradle-useless-plugin']
         }
     }
