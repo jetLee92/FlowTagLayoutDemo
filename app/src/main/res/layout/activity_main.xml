@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -23,18 +23,33 @@
         app:item_topMargin="8dp"
         app:item_topPadding="6dp" />
 
-    <Button
-        android:id="@+id/add"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="添加" />
+        android:layout_above="@+id/edit"
+        android:layout_centerHorizontal="true">
 
-    <Button
-        android:id="@+id/remove"
-        android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="40dp"
+            android:text="添加" />
+
+        <Button
+            android:id="@+id/remove"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="移除" />
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/edit"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="去除" />
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="16dp" />
 
-</LinearLayout>
+</RelativeLayout>
