@@ -55,7 +55,7 @@
         app:item_background="@drawable/ripple_gray"  // tag的item背景效果
         app:item_textColor="#F25A25"  // tag的text颜色
         app:item_textSize="16sp"  // tag的text字体大小
-		/>
+	/>
 
 下面列出FlowTagLayout的重要方法（注意，这些方法可以共用，也可以只用一种，看各自的需求）
 
@@ -81,7 +81,7 @@
 	flowTagLayout.setTagClickListener(new FlowTagLayout.OnTagClickListener() {
 	    @Override
 	    public void tagClick(int position) {
-			// getChildAt(position)方法在这很实用
+		// getChildAt(position)方法在这很实用
 	        flowTagLayout.getChildAt(position).setSelected(!flowTagLayout.getChildAt(position).isSelected());
 	    }
 	});
